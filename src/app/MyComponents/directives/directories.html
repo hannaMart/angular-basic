@@ -1,0 +1,122 @@
+
+<button
+    type="button"
+    class="btn btn-secondary m-2"
+    (click)="sortCountries()"
+>
+    Sort list
+</button>
+
+
+<button
+    type="button"
+    class="btn btn-secondary m-2"
+    (click)="toggleCard()"
+>
+    Display Card
+</button>
+
+
+@if(showCard){
+    <div
+    class="card border-secondary m-1"
+>
+    <div class="card-body">
+        <h4 class="card-title">{{info}}</h4>
+       <ul>
+        @for(c of countries; track $index){
+            <li>{{$index}}{{c.name}}:{{c.capital}}:{{c.area}} km<sup>2</sup></li>
+        }
+       </ul>
+    </div>
+</div>
+
+}
+
+
+<hr>
+<div
+    class="card border-secondary m-1"
+>
+    <div class="card-body">
+        <h4 class="card-title">conditional statement</h4>
+<ul>
+  @for (c of countries; track $index) {
+    <li>
+      @if (c.area > 60000) {
+        <span class="large">
+          {{$index}} {{c.name}}: {{c.capital}}: {{c.area}} km<sup>2</sup> large
+        </span>
+      } @else {
+        <span>
+          {{$index}} {{c.name}}: {{c.capital}}: {{c.area}} km<sup>2</sup> small
+        </span>
+      }
+    </li>
+  }
+</ul>
+    </div>
+</div>
+
+<hr>
+<div
+    class="card border-secondary m-1"
+>
+    <div class="card-body">
+        <h4 class="card-title">Table</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                 @for(c of countries; track $index){
+                    <tr>
+                        <td>{{$index}}</td>
+                        <td>{{c.name}}</td>
+                        <td>{{c.capital}}</td>
+                        <td>{{c.area}}</td>
+                    </tr>
+                 }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<hr>
+<div
+    class="card border-secondary m-1"
+>
+    <div class="card-body">
+        <h4 class="card-title">Table</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                 @for(c of countries; track $index){
+                    <tr>
+                        <td [ngStyle]="{'background':getColor($index)}">{{$index+1}}</td>
+                        <td [ngStyle]="{'background':getColor($index)}">{{c.name}}</td>
+                        <td [ngStyle]="{'background':getColor($index)}">{{c.capital}}</td>
+                        <td [ngStyle]="{'background':getColor($index)}">{{c.area}}</td>
+                    </tr>
+                 }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
