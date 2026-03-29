@@ -1,0 +1,32 @@
+<div class="row justify-content-center align-items-center g-2">
+  <div class="col-6">
+    <div class="card border-primary">
+      <div class="card-body">
+        <h4 class="card-title">Weather Form</h4>
+        <div class="mb-3">
+          <label for="city_name" class="form-label">City</label>
+          <input [(ngModel)]="city_name" type="text" class="form-control" id="city_name" />
+
+        </div>
+        <button (click)="GetWeatherStats()" type="button" class="btn btn-secondary">
+          Get weather Stats
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-6">
+    @if(showInfoModule){
+    <div class="card border-primary">
+      <div class="card-body">
+        <h4 class="card-title">{{weatherModel?.cityName}}</h4>
+        <p>{{weatherModel?.temperature}}</p>
+        <p>{{weatherModel?.text}}</p>
+        <img [src]="weatherModel?.icon" alt="icon">
+
+      </div>
+    </div>
+    }
+
+  </div>
+</div>

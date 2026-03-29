@@ -1,0 +1,37 @@
+<div class="card border-secondary">
+  <div class="card-body">
+    <h4 class="card-title">Parent to child</h4>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Message</label>
+    </div>
+    <input [(ngModel)]="msg" type="text" class="form-control" />
+    <button (click)="btnSendClick()" type="button" class="btn btn-primary">
+      Send message to child
+    </button>
+
+
+    <app-child infoFromParent="{{messageToChild}}"></app-child>
+
+  </div>
+</div>
+<hr>
+<div class="card border-secondary">
+  <div class="card-body">
+    <h4 class="card-title">Child to parente</h4>
+    <p>{{messageFromChild }}</p>
+
+    <app-child-output (childMessage)="getMessage($event)"></app-child-output>
+  </div>
+</div>
+
+<div class="card border-secondary m-2">
+  <div class="card-body">
+    <h4 class="card-title">Parallel Components</h4>
+    <div class="row justify-content-center align-items-center g-2">
+      <div class="col-6"><app-component1></app-component1></div>
+      <div class="col-6"><app-component2></app-component2></div>
+    </div>
+
+  </div>
+</div>

@@ -3,12 +3,13 @@ import { Country } from '../../MyClasses/country';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-directories',
+  selector: 'app-directives',
   imports: [CommonModule],
-  templateUrl: './directories.html',
-  styleUrl: './directories.css',
+  templateUrl: './directives.html',
+  styleUrl: './directives.css',
+  standalone: true
 })
-export class Directories implements OnInit {
+export class Directives implements OnInit {
   info = "Countries"
 
   countries = new Array();
